@@ -9,7 +9,7 @@ vectorizer = pickle.load(open("save_vectorizer_nom_model.pkl", "rb"))
 
 # Новый текст для классификации
 #new_text1 = ["Клавиатура Lenovo RTYGHFBEL653MS3"]
-new_text1 = ["Telek LG", "holodilnik Manya", "Детский автомобиль YD-518-1 красный", "Зернодробилка Фермер-3 ИЗЭ-14"]
+new_text1 = ["Telek LG", "Стиральная машина Manya", "Детский Xiaomi", "Ноутбук lenovo","мышь компьютерная a4"]
 new_text = [x.lower() for x in new_text1]
 #new_text =new_text1.lower()
 
