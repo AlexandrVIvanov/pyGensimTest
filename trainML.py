@@ -32,7 +32,7 @@ cnt_claster = data['mark'].unique().shape[0]
 # train_labels = [x.lower() for x in lines]
 
 # Создание объекта TfidfVectorizer для получения матрицы TF-IDF
-stopwords = ['стиральная', "машина"]
+stopwords = ["стиральная", "машина"]
 vectorizer = TfidfVectorizer(stop_words=stopwords)
 X_train = vectorizer.fit_transform(train_texts)
 
