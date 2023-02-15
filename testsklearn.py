@@ -1,13 +1,16 @@
+from pprint import pprint
+
+import numpy as np
 import pandas as pd
+from gensim.models import Word2Vec
 
-filetext = Path('nom.txt')
-lines = filetext.read_text(encoding='utf8').splitlines()
-train_text = [x.lower() for x in lines]
+file = 'markandnom.csv'
+data = pd.read_csv(file, delimiter=';', index_col=False, encoding='utf8')
+data = data.replace(np.nan, '')
 
-filetext = Path('mark.txt')
-lines = filetext.read_text(encoding='utf8').splitlines()
-topic_text = [x.lower() for x in lines]
+train_texts = data['nom'].tolist()
+train_labels = data['mark'].tolist()
 
-data = pd.read_csv()
-
-
+model = Word2Vec([train_texts,train_labels], min_count=1)
+vect = model.wv.most_similar('Телевизор Manya')
+pprint(vect)

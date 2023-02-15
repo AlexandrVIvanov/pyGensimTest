@@ -9,7 +9,7 @@ vectorizer = pickle.load(open("save_vectorizer_nom_model.pkl", "rb"))
 
 # Новый текст для классификации
 #new_text1 = ["Клавиатура Lenovo RTYGHFBEL653MS3"]
-new_text1 = ["Telek LG", "Стиральная машина Manya", "Детский Xiaomi", "Ноутбук lenovo","мышь компьютерная a4"]
+new_text1 = ["Telek LG", "Стиральная машина Manya", "Детский Xiaomi", "Ноутбук lenovo","Блок питания Zalman WattBit ATX 400W 120mm"]
 new_text = [x.lower() for x in new_text1]
 #new_text =new_text1.lower()
 
@@ -33,7 +33,9 @@ for i in range(len(new_text)):
     max_index = pred_proba[i].argmax()
     pred_proba_label = clf.classes_[max_index]
     print("MAX Probability of key word '{}': {:.2f}%".format(pred_proba_label, pred_proba[i][max_index]*100))
-#print("Predicted cluster:", pred_cluster[1])
+#     for i, key_word in enumerate(clf.classes_):
+#         print("Probability of key word '{}': {:.2f}%".format(key_word, pred_proba[0][i] * 100))
+# #print("Predicted cluster:", pred_cluster[1])
 #print("Predicted key word:", pred_label[1])
 
 

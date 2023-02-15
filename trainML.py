@@ -1,5 +1,5 @@
 import pickle
-#from pathlib import Path
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -22,17 +22,19 @@ train_texts = data['nom'].tolist()
 train_labels = data['mark'].tolist()
 
 cnt_claster = data['mark'].unique().shape[0]
-#
-# filetext = Path('nom.txt')
-# lines = filetext.read_text(encoding='utf8').splitlines()
-# train_texts = [x.lower() for x in lines]
+
+filetext = Path('ignoreworlds.txt')
+stopwords = filetext.read_text(encoding='utf8').splitlines()
+stopwords = [x.lower() for x in stopwords]
 #
 # filetext = Path('mark.txt')
 # lines = filetext.read_text(encoding='utf8').splitlines()
 # train_labels = [x.lower() for x in lines]
 
 # Создание объекта TfidfVectorizer для получения матрицы TF-IDF
-stopwords = ["стиральная", "машина"]
+#stopwords = ["стиральная", "машина", "блок", "питания", "Смартфон", "Холодильник", "Шашлычница", "Водонагреватель", "Телевизор"]
+#stopwords = [x.lower() for x in stopwords]
+
 vectorizer = TfidfVectorizer(stop_words=stopwords)
 X_train = vectorizer.fit_transform(train_texts)
 
