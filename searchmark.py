@@ -11,9 +11,7 @@ class retclass:
     namemark: str
     probavalue: float
 
-
 app = FastAPI()
-
 
 def get_AI_mark(goodsname) -> retclass:
     new_text1 = [goodsname]
